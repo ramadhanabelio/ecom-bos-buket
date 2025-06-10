@@ -112,7 +112,6 @@
                 </li>
             @endif
 
-            <!-- Menu Admin - Hanya Tampil jika Role = Admin -->
             @if (auth()->user()->role === 'admin')
                 <!-- Manajemen Pesanan -->
                 <li class="nav-item">
