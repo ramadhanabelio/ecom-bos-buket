@@ -24,15 +24,16 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Produk</h5>
-                        <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+                        <form action="{{ route('admin.products.update', $product->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="id_category" class="form-label">Kategori</label>
                                     <select name="id_category" id="id_category"
-                                        class="form-control @error('id_category') is-invalid @enderror" required>
-                                        <option value="">-- Pilih Kategori --</option>
+                                        class="form-select @error('id_category') is-invalid @enderror" required>
+                                        <option value="">Pilih Kategori</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}"
                                                 {{ $product->id_category == $category->id ? 'selected' : '' }}>
@@ -85,8 +86,8 @@
                                 <div class="col-md-4">
                                     <label for="status" class="form-label">Status</label>
                                     <select name="status" id="status"
-                                        class="form-control @error('status') is-invalid @enderror" required>
-                                        <option value="">-- Pilih Status --</option>
+                                        class="form-select @error('status') is-invalid @enderror" required>
+                                        <option value="">Pilih Status</option>
                                         <option value="active" {{ $product->status == 'active' ? 'selected' : '' }}>Aktif
                                         </option>
                                         <option value="inactive" {{ $product->status == 'inactive' ? 'selected' : '' }}>
@@ -101,13 +102,14 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="image" class="form-label">URL Gambar (opsional)</label>
-                                <input type="text" name="image" id="image"
-                                    class="form-control @error('image') is-invalid @enderror"
-                                    value="{{ old('image', $product->image) }}">
+                                <label for="image" class="form-label">Upload Gambar (opsional)</label>
+                                <input type="file" name="image" id="image"
+                                    class="form-control @error('image') is-invalid @enderror" accept="image/*">
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="gambar produk"
+                                    class="img-thumbnail mt-3" width="200">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>
