@@ -46,4 +46,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('users', UserController::class);
     Route::resource('bank-accounts', BankAccountController::class);
     Route::resource('orders', OrderController::class)->except(['create', 'store']);
+    Route::get('orders/export/pdf', [OrderController::class, 'exportPdf'])->name('orders.export.pdf');
 });

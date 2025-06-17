@@ -28,6 +28,26 @@
                                     aria-label="Close"></button>
                             </div>
                         @endif
+                        <form action="{{ route('admin.orders.index') }}" method="GET" class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <input type="date" name="start_date" class="form-control"
+                                    value="{{ request('start_date') }}">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="date" name="end_date" class="form-control"
+                                    value="{{ request('end_date') }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">Reset</a>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <a href="{{ route('admin.orders.export.pdf', ['start_date' => request('start_date'), 'end_date' => request('end_date')]) }}"
+                                    class="btn btn-danger">
+                                    <i class="bi bi-filetype-pdf"></i> Cetak PDF
+                                </a>
+                            </div>
+                        </form>
                         <table class="table table-borderless datatable">
                             <thead>
                                 <tr>
