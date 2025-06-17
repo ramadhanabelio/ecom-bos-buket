@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BankAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('users', UserController::class);
+    Route::resource('bank-accounts', BankAccountController::class);
     Route::resource('orders', OrderController::class)->except(['create', 'store']);
 });

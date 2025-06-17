@@ -190,6 +190,35 @@
                     </div>
                 </li>
 
+                <!-- Manajemen Rekening -->
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('admin.bank-accounts.*') ? '' : 'collapsed' }}"
+                        data-bs-toggle="collapse" href="#bank-accountsMenu">
+                        <i class="bi bi-bank2{{ Route::is('admin.bank-accounts.*') ? '' : '' }}"></i>
+                        <span>Manajemen Rekening</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <div class="collapse {{ Route::is('admin.bank-accounts.*') ? 'show' : '' }}"
+                        id="bank-accountsMenu">
+                        <ul class="nav-content">
+                            <li>
+                                <a href="{{ route('admin.bank-accounts.index') }}"
+                                    class="{{ Route::is('admin.bank-accounts.index') ? 'active' : '' }}">
+                                    <i class="bi bi-list"></i>
+                                    <span>Daftar Rekening</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.bank-accounts.create') }}"
+                                    class="{{ Route::is('admin.bank-accounts.create') ? 'active' : '' }}">
+                                    <i class="bi bi-plus-circle"></i>
+                                    <span>Tambah Rekening</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <!-- Manajemen Pelanggan -->
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('admin.users.*') ? '' : 'collapsed' }}" data-bs-toggle="collapse"
