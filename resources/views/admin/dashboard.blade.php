@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-xxl-4 col-md-6">
                         <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
-                            <div class="card info-card sales-card">
+                            <div class="card info-card pink-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Manajemen Pesanan</h5>
                                     <div class="d-flex align-items-center">
@@ -39,7 +39,7 @@
 
                     <div class="col-xxl-4 col-md-6">
                         <a href="{{ route('admin.products.index') }}" class="text-decoration-none">
-                            <div class="card info-card revenue-card">
+                            <div class="card info-card pink-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Manajemen Produk</h5>
                                     <div class="d-flex align-items-center">
@@ -58,7 +58,7 @@
 
                     <div class="col-xxl-4 col-md-6">
                         <a href="{{ route('admin.categories.index') }}" class="text-decoration-none">
-                            <div class="card info-card customers-card">
+                            <div class="card info-card pink-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Manajemen Kategori</h5>
                                     <div class="d-flex align-items-center">
@@ -77,7 +77,7 @@
 
                     <div class="col-xxl-4 col-md-6">
                         <a href="{{ route('admin.bank-accounts.index') }}" class="text-decoration-none">
-                            <div class="card info-card sales-card">
+                            <div class="card info-card pink-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Manajemen Rekening</h5>
                                     <div class="d-flex align-items-center">
@@ -96,7 +96,7 @@
 
                     <div class="col-xxl-4 col-md-6">
                         <a href="{{ route('admin.users.index') }}" class="text-decoration-none">
-                            <div class="card info-card revenue-card">
+                            <div class="card info-card pink-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Manajemen Pelanggan</h5>
                                     <div class="d-flex align-items-center">
