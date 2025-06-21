@@ -38,7 +38,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Masuk</button>
+                                        <button class="btn btn-pink w-100" type="submit">Masuk</button>
                                     </div>
                                     <div class="col-12 text-center">
                                         <p class="small mb-0">Belum mempunyai akun? <a

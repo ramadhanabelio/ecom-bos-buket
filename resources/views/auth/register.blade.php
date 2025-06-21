@@ -73,7 +73,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Daftar</button>
+                                        <button class="btn btn-pink w-100" type="submit">Daftar</button>
                                     </div>
 
                                     <div class="col-12 text-center">
