@@ -105,12 +105,62 @@
                     </a>
                 </li>
             @else
+                <!-- Dashboard -->
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('user.dashboard') ? 'active' : 'collapsed' }}"
                         href="{{ route('user.dashboard') }}">
                         <i class="bi bi-house{{ Route::is('user.dashboard') ? '-fill' : '' }}"></i>
                         <span>Dashboard</span>
                     </a>
+                </li>
+
+                <!-- Profil -->
+                {{-- <li class="nav-item">
+                    <a class="nav-link {{ Route::is('user.profiles*') ? '' : 'collapsed' }}" data-bs-toggle="collapse"
+                        href="#profileMenu">
+                        <i class="bi bi-person{{ Route::is('user.profiles*') ? '-fill' : '' }}"></i>
+                        <span>Profil</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <div class="collapse {{ Route::is('user.profiles*') ? 'show' : '' }}" id="profileMenu">
+                        <ul class="nav-content">
+                            <li>
+                                <a href="{{ route('user.profiles') }}"
+                                    class="{{ Route::is('user.profiles') ? 'active' : '' }}">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Lihat Profil</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.profiles.edit') }}"
+                                    class="{{ Route::is('user.profiles.edit') ? 'active' : '' }}">
+                                    <i class="bi bi-pencil-square"></i>
+                                    <span>Edit Profil</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+
+                <!-- Produk -->
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('user.products*') ? '' : 'collapsed' }}" data-bs-toggle="collapse"
+                        href="#userProductsMenu">
+                        <i class="bi bi-box{{ Route::is('user.products*') ? '-fill' : '' }}"></i>
+                        <span>Produk</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <div class="collapse {{ Route::is('user.products*') ? 'show' : '' }}" id="userProductsMenu">
+                        <ul class="nav-content">
+                            <li>
+                                <a href="{{ route('user.products.index') }}"
+                                    class="{{ Route::is('user.products.index') ? 'active' : '' }}">
+                                    <i class="bi bi-list"></i>
+                                    <span>Daftar Produk</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             @endif
 
