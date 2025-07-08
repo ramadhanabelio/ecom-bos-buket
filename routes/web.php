@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BankAccountController;
+use App\Http\Controllers\User\ProductController as UserProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +49,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('bank-accounts', BankAccountController::class);
     Route::resource('orders', OrderController::class)->except(['create', 'store']);
     Route::get('orders/export/pdf', [OrderController::class, 'exportPdf'])->name('orders.export.pdf');
+});
+
+Route::middleware(['auth'])->prefix('user')->name('user.')->group(function () {
+    Route::get('dashboard', function () {
+        return view('user.dashboard');
+    })->name('dashboard');
+
+    Route::get('profiles', [ProfileController::class, 'index'])->name('profiles');
+    Route::get('profiles/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+    Route::post('profiles/update', [ProfileController::class, 'update'])->name('profiles.update');
+    Route::get('products', [UserProductController::class, 'index'])->name('products.index');
+    Route::get('products/{id}', [UserProductController::class, 'show'])->name('products.show');
 });

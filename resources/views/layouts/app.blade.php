@@ -57,17 +57,19 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-
-                        {{-- <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-person"></i>
-                                <span>Profil</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li> --}}
-
+                        @auth
+                            @if (auth()->user()->role === 'user')
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('user.profiles') }}">
+                                        <i class="bi bi-person"></i>
+                                        <span>Profil</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                            @endif
+                        @endauth
                         <li>
                             <a class="dropdown-item d-flex align-items-center text-danger" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
