@@ -20,7 +20,9 @@
                     <button class="btn btn-outline-secondary">
                         <i class="bi bi-cart-plus"></i>
                     </button>
-                    <button class="btn btn-pink">Beli Sekarang</button>
+                    <a href="{{ route('user.checkout.create', $product->id) }}" class="btn btn-pink">
+                        Beli Sekarang
+                    </a>
                 </div>
             </div>
         </div>

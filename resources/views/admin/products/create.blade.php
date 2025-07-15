@@ -86,12 +86,10 @@
                                     <select name="status" id="status"
                                         class="form-select @error('status') is-invalid @enderror" required>
                                         <option value="">Pilih Status</option>
-                                        <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Aktif
+                                        <option value="ready" {{ old('ready') == 'ready' ? 'selected' : '' }}>Ready
                                         </option>
-                                        <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Tidak
-                                            Aktif</option>
-                                        <option value="discontinued"
-                                            {{ old('status') == 'discontinued' ? 'selected' : '' }}>Dihentikan</option>
+                                        <option value="pre-order" {{ old('pre-order') == 'pre-order' ? 'selected' : '' }}>
+                                            Pre-Order</option>
                                     </select>
                                     @error('status')
                                         <div class="invalid-feedback">{{ $message }}</div>

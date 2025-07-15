@@ -31,7 +31,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             'size' => 'required|string|max:50',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|in:active,inactive,discontinued',
+            'status' => 'required|in:ready,pre-order',
         ]);
 
         $data = $request->all();
@@ -66,7 +66,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             'size' => 'required|string|max:50',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|in:active,inactive,discontinued',
+            'status' => 'required|in:ready,pre-order',
         ]);
 
         $data = $request->all();

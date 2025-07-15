@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('size');
             $table->string('image')->nullable();
-            $table->enum('status', ['active', 'inactive', 'discontinued']);
+            $table->enum('status', ['ready', 'pre-order']);
             $table->timestamps();
 
             $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade');

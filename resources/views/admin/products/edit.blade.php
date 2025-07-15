@@ -88,12 +88,10 @@
                                     <select name="status" id="status"
                                         class="form-select @error('status') is-invalid @enderror" required>
                                         <option value="">Pilih Status</option>
-                                        <option value="active" {{ $product->status == 'active' ? 'selected' : '' }}>Aktif
+                                        <option value="ready" {{ $product->status == 'ready' ? 'selected' : '' }}>Ready
                                         </option>
-                                        <option value="inactive" {{ $product->status == 'inactive' ? 'selected' : '' }}>
-                                            Tidak Aktif</option>
-                                        <option value="discontinued"
-                                            {{ $product->status == 'discontinued' ? 'selected' : '' }}>Dihentikan</option>
+                                        <option value="pre-order" {{ $product->status == 'pre-order' ? 'selected' : '' }}>
+                                            Pre-Order</option>
                                     </select>
                                     @error('status')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -108,7 +106,7 @@
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="gambar produk"
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                     class="img-thumbnail mt-3" width="200">
                             </div>
 

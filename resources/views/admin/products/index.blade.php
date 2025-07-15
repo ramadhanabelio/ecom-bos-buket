@@ -64,9 +64,8 @@
                                                 <td>
                                                     @php
                                                         $statusClass = match ($product->status) {
-                                                            'active' => 'bg-success',
-                                                            'inactive' => 'bg-secondary',
-                                                            'discontinued' => 'bg-danger',
+                                                            'ready' => 'bg-success',
+                                                            'pre-order' => 'bg-secondary',
                                                             default => 'bg-light text-dark',
                                                         };
                                                     @endphp

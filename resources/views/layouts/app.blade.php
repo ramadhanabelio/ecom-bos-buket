@@ -162,6 +162,15 @@
                         </ul>
                     </div>
                 </li>
+
+                <!-- Riwayat Pemesanan -->
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('user.orders.history') ? 'active' : 'collapsed' }}"
+                        href="{{ route('user.orders.history') }}">
+                        <i class="bi bi-clock{{ Route::is('user.orders.history') ? '-fill' : '' }}"></i>
+                        <span>Riwayat Pemesanan</span>
+                    </a>
+                </li>
             @endif
 
             @if (auth()->user()->role === 'admin')
