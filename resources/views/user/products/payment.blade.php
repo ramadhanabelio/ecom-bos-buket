@@ -56,7 +56,7 @@
                             <label>Bukti Bayar</label>
                             <input type="file" name="proof" class="form-control" accept="image/*" required>
                         </div>
-                        <button class="btn btn-success">Edit</button>
+                        <button class="btn btn-success">Bayar</button>
                     </form>
                 </div>
             </div>

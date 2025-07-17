@@ -37,8 +37,18 @@
                                         'canceled' => 'danger',
                                         default => 'dark',
                                     };
+
+                                    $statusLabels = [
+                                        'pending' => 'Menunggu',
+                                        'paid' => 'Dibayar',
+                                        'shipped' => 'Dikirim',
+                                        'delivered' => 'Diterima',
+                                        'canceled' => 'Dibatalkan',
+                                    ];
+
+                                    $statusText = $statusLabels[$order->status] ?? ucfirst($order->status);
                                 @endphp
-                                <span class="badge bg-{{ $badge }}">{{ ucfirst($order->status) }}</span>
+                                <span class="badge bg-{{ $badge }}">{{ $statusText }}</span>
                             </td>
                             <td>
                                 @if ($order->payment_proof)
