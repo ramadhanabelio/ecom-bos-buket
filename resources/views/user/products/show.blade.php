@@ -17,9 +17,6 @@
                 <p><strong>Status:</strong> {{ $product->status }}</p>
 
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-secondary">
-                        <i class="bi bi-cart-plus"></i>
-                    </button>
                     <a href="{{ route('user.checkout.create', $product->id) }}" class="btn btn-pink">
                         Beli Sekarang
                     </a>

@@ -17,10 +17,7 @@
                             <h5 class="card-title text-center">{{ $product->name }}</h5>
                             <p class="card-text mb-1">Rp. {{ number_format($product->price, 0, ',', '.') }}</p>
                             <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <a href="#" class="btn btn-sm btn-outline-secondary">
-                                        <i class="bi bi-cart-plus"></i>
-                                    </a>
+                                <div class="d-flex justify-content-center align-items-center">
                                     <a href="{{ route('user.products.show', $product->id) }}" class="btn btn-sm btn-pink">
                                         Beli Sekarang
                                     </a>

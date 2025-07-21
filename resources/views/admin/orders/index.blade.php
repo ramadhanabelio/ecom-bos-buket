@@ -70,17 +70,28 @@
                                         <td>Rp. {{ number_format($order->total, 0, ',', '.') }}</td>
                                         <td>
                                             @php
-                                                $statusClass = match ($order->status) {
-                                                    'pending' => 'bg-warning',
-                                                    'paid' => 'bg-info',
-                                                    'shipped' => 'bg-primary',
-                                                    'delivered' => 'bg-success',
-                                                    'canceled' => 'bg-danger',
-                                                    default => 'bg-secondary',
+                                                $badge = match ($order->status) {
+                                                    'pending' => 'secondary',
+                                                    'paid' => 'info',
+                                                    'shipped' => 'warning',
+                                                    'delivered' => 'success',
+                                                    'canceled' => 'danger',
+                                                    default => 'dark',
                                                 };
+
+                                                $statusLabels = [
+                                                    'pending' => 'Menunggu',
+                                                    'paid' => 'Dibayar',
+                                                    'shipped' => 'Dikirim',
+                                                    'delivered' => 'Diterima',
+                                                    'canceled' => 'Dibatalkan',
+                                                ];
+
+                                                $label = $statusLabels[$order->status] ?? ucfirst($order->status);
                                             @endphp
-                                            <span class="badge {{ $statusClass }}">
-                                                {{ ucfirst($order->status) }}
+
+                                            <span class="badge bg-{{ $badge }}">
+                                                {{ $label }}
                                             </span>
                                         </td>
                                         <td>

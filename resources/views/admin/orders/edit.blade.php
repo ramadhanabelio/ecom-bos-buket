@@ -30,16 +30,16 @@
                             <div class="mb-3">
                                 <label for="status" class="form-label">Status</label>
                                 <select name="status" id="status"
-                                    class="form-control @error('status') is-invalid @enderror" required>
+                                    class="form-select @error('status') is-invalid @enderror" required>
                                     <option value="">-- Pilih Status --</option>
-                                    <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending
+                                    <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Menunggu
                                     </option>
-                                    <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Paid</option>
-                                    <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Shipped
+                                    <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Dibayar</option>
+                                    <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Dikirim
                                     </option>
                                     <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>
-                                        Delivered</option>
-                                    <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Canceled
+                                        Terkirim</option>
+                                    <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Dibatalkan
                                     </option>
                                 </select>
                                 @error('status')
