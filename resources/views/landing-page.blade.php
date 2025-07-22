@@ -57,7 +57,8 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">Pesan Buket Spesial Anda!</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">Pilih buket yang anda sukai, lakukan pemesanan dan
+                    <h2 data-aos="fade-up" data-aos-delay="400">Pilih buket yang anda sukai, pemesanan buket minimal 2
+                        hari sebelum pengabilan, lakukan pemesanan dan
                         bayar, lalu buket sudah ada ditangan anda</h2>
                     <div data-aos="fade-up" data-aos-delay="400" class="mt-5">
                         <a href="https://wa.me/6282284811590" class="btn-get-started">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Pembayaran')
+
 @section('content')
     <div class="container py-4">
         <h4>Pembayaran</h4>
@@ -10,7 +12,7 @@
                 <div class="border p-3 rounded">
                     <h5>Data No Rekening</h5>
                     <p>Silakan lakukan pembayaran dengan nominal:</p>
-                    <h4>Rp.{{ number_format($order->total, 0, ',', '.') }}</h4>
+                    <h4>Rp. {{ number_format($order->total, 0, ',', '.') }}</h4>
 
                     <table class="table table-bordered">
                         <thead>
@@ -40,23 +42,28 @@
                     <form action="{{ route('user.payment.confirm', $order->invoice) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+
                         <div class="mb-2">
-                            <label>Atas Nama</label>
+                            <label class="form-label">Atas Nama</label>
                             <input type="text" name="payer_name" class="form-control" required>
                         </div>
+
                         <div class="mb-2">
-                            <label>Nama Bank</label>
+                            <label class="form-label">Nama Bank</label>
                             <input type="text" name="bank_name" class="form-control" required>
                         </div>
+
                         <div class="mb-2">
-                            <label>No Rek</label>
+                            <label class="form-label">No Rekening</label>
                             <input type="text" name="account_number" class="form-control" required>
                         </div>
+
                         <div class="mb-3">
-                            <label>Bukti Bayar</label>
+                            <label class="form-label">Bukti Bayar</label>
                             <input type="file" name="proof" class="form-control" accept="image/*" required>
                         </div>
-                        <button class="btn btn-success">Bayar</button>
+
+                        <button class="btn btn-success" type="submit">Kirim Pembayaran</button>
                     </form>
                 </div>
             </div>

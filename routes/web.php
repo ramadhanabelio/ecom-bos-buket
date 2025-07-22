@@ -62,6 +62,7 @@ Route::middleware(['auth'])->prefix('user')->name('user.')->group(function () {
     Route::get('products/{id}', [UserProductController::class, 'show'])->name('products.show');
     Route::get('checkout/{product}', [UserProductController::class, 'create'])->name('checkout.create');
     Route::post('checkout/{product}', [UserProductController::class, 'store'])->name('checkout.store');
+    Route::get('checkout/cod/{invoice}', [UserProductController::class, 'cod'])->name('user.checkout.cod');
     Route::get('payment/{invoice}', [UserProductController::class, 'payment'])->name('payment');
     Route::post('payment/{invoice}/confirm', [UserProductController::class, 'confirmPayment'])->name('payment.confirm');
     Route::get('orders/history', [UserProductController::class, 'history'])->name('orders.history');

@@ -20,7 +20,8 @@ class Order extends Model
         'payment_method',
         'qty',
         'total',
-        'status'
+        'status',
+        'payment_proof',
     ];
 
     public function product()

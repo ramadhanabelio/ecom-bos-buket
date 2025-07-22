@@ -49,6 +49,14 @@
                                 <th>Status</th>
                                 <td>
                                     @php
+                                        $statusLabels = [
+                                            'pending' => 'Diproses',
+                                            'paid' => 'Dibayar',
+                                            'shipped' => 'Dikirim',
+                                            'delivered' => 'Diterima',
+                                            'canceled' => 'Dibatalkan',
+                                        ];
+
                                         $statusClass = match ($order->status) {
                                             'pending' => 'text-bg-warning',
                                             'paid' => 'text-bg-info',
@@ -59,7 +67,7 @@
                                         };
                                     @endphp
                                     <span class="badge {{ $statusClass }}">
-                                        {{ ucfirst($order->status) }}
+                                        {{ $statusLabels[$order->status] ?? ucfirst($order->status) }}
                                     </span>
                                 </td>
                             </tr>

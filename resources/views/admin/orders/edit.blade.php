@@ -31,14 +31,14 @@
                                 <label for="status" class="form-label">Status</label>
                                 <select name="status" id="status"
                                     class="form-select @error('status') is-invalid @enderror" required>
-                                    <option value="">-- Pilih Status --</option>
-                                    <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Menunggu
+                                    <option value="">Pilih Status</option>
+                                    <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Diproses
                                     </option>
                                     <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Dibayar</option>
                                     <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Dikirim
                                     </option>
                                     <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>
-                                        Terkirim</option>
+                                        Selesai</option>
                                     <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Dibatalkan
                                     </option>
                                 </select>

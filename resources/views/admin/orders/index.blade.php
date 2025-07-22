@@ -54,9 +54,10 @@
                                     <th>No.</th>
                                     <th>Nomor Invoice</th>
                                     <th>Nama Produk</th>
-                                    <th>Tanggal</th>
+                                    <th>Tanggal Pengambilan</th>
                                     <th>Total</th>
                                     <th>Status</th>
+                                    <th>Bukti Transfer</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -80,7 +81,7 @@
                                                 };
 
                                                 $statusLabels = [
-                                                    'pending' => 'Menunggu',
+                                                    'pending' => 'Diproses',
                                                     'paid' => 'Dibayar',
                                                     'shipped' => 'Dikirim',
                                                     'delivered' => 'Diterima',
@@ -93,6 +94,38 @@
                                             <span class="badge bg-{{ $badge }}">
                                                 {{ $label }}
                                             </span>
+                                        </td>
+                                        <td>
+                                            @if ($order->payment_proof)
+                                                <a href="#" class="badge bg-success text-white" data-bs-toggle="modal"
+                                                    data-bs-target="#proofModal{{ $order->id }}">
+                                                    Lihat Bukti
+                                                </a>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="proofModal{{ $order->id }}" tabindex="-1"
+                                                    aria-labelledby="proofModalLabel{{ $order->id }}"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="proofModalLabel{{ $order->id }}">Bukti Transfer
+                                                                    - {{ $order->invoice }}</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center">
+                                                                <img src="{{ asset('storage/' . $order->payment_proof) }}"
+                                                                    alt="Bukti Transfer"
+                                                                    class="img-fluid rounded shadow-sm">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <span class="badge bg-secondary">Belum Ada</span>
+                                            @endif
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.orders.show', $order->id) }}"

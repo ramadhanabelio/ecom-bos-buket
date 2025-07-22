@@ -57,7 +57,17 @@ class ProductController extends Controller
             'status' => 'pending',
         ]);
 
+        if ($request->payment_method === 'COD') {
+            return redirect()->route('user.user.checkout.cod', $order->invoice);
+        }
+
         return redirect()->route('user.payment', $order->invoice);
+    }
+
+    public function cod($invoice)
+    {
+        $order = Order::where('invoice', $invoice)->firstOrFail();
+        return view('user.products.cod', compact('order'));
     }
 
     public function payment($invoice)
@@ -79,11 +89,12 @@ class ProductController extends Controller
             'proof' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $proofPath = $request->file('proof')->store('proofs', 'public');
+        $proofFile = $request->file('proof');
+        $proofName = uniqid('proof_') . '.' . $proofFile->getClientOriginalExtension();
+        $proofPath = $proofFile->storeAs('proofs', $proofName, 'public');
 
         $order->update([
             'status' => 'paid',
-            'notes' => $order->notes . "\nPembayaran dari {$request->payer_name} via {$request->bank_name} ({$request->account_number})",
             'payment_proof' => $proofPath,
         ]);
 

@@ -85,7 +85,7 @@
                 <th>No.</th>
                 <th>Nomor Invoice</th>
                 <th>Nama Produk</th>
-                <th>Tanggal Order</th>
+                <th>Tanggal Pengambilan</th>
                 <th>Total</th>
                 <th>Status</th>
             </tr>
@@ -98,7 +98,16 @@
                     <td>{{ $order->product->name ?? '-' }}</td>
                     <td>{{ \Carbon\Carbon::parse($order->date_order)->translatedFormat('d F Y') }}</td>
                     <td>Rp. {{ number_format($order->total, 0, ',', '.') }}</td>
-                    <td>{{ ucfirst($order->status) }}</td>
+                    @php
+                        $statusLabels = [
+                            'pending' => 'Diproses',
+                            'paid' => 'Dibayar',
+                            'shipped' => 'Dikirim',
+                            'delivered' => 'Diterima',
+                            'canceled' => 'Dibatalkan',
+                        ];
+                    @endphp
+                    <td>{{ $statusLabels[$order->status] ?? ucfirst($order->status) }}</td>
                 </tr>
             @endforeach
         </tbody>

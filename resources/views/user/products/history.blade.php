@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Riwayat Pemesanan')
+
 @section('content')
     <div class="container py-4">
         <h4>Riwayat Pembelian</h4>
