@@ -54,6 +54,7 @@
                                     <th>No.</th>
                                     <th>Nomor Invoice</th>
                                     <th>Nama Produk</th>
+                                    <th>Tanggal Order</th>
                                     <th>Tanggal Pengambilan</th>
                                     <th>Total</th>
                                     <th>Status</th>
@@ -67,6 +68,7 @@
                                         <td>{{ $index + 1 }}.</td>
                                         <td>{{ $order->invoice }}</td>
                                         <td>{{ $order->product->name ?? '-' }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($order->created_at)->format('d M Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($order->date_order)->format('d M Y') }}</td>
                                         <td>Rp. {{ number_format($order->total, 0, ',', '.') }}</td>
                                         <td>

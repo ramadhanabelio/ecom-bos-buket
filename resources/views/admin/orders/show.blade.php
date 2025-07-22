@@ -34,7 +34,11 @@
                                 <td>{{ $order->product->name ?? '-' }}</td>
                             </tr>
                             <tr>
-                                <th>Tanggal Pesan</th>
+                                <th>Tanggal Order</th>
+                                <td>{{ \Carbon\Carbon::parse($order->date_order)->format('d F Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Pengambilan</th>
                                 <td>{{ \Carbon\Carbon::parse($order->date_order)->format('d F Y') }}</td>
                             </tr>
                             <tr>
